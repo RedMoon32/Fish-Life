@@ -6,26 +6,13 @@
 using namespace std;
 
 void init_window() {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-//    sf::CircleShape shape(100.f);
-//    shape.setFillColor(sf::Color::Green);
-//
-//    while (window.isOpen()) {
-//        sf::Event event;
-//        while (window.pollEvent(event)) {
-//            if (event.type == sf::Event::Closed)
-//                window.close();
-//        }
-//        window.draw(shape);
-//        window.display();
-//    }
+    sf::RenderWindow window(sf::VideoMode(WINDOW_MAX_X, WINDOW_MAX_Y), "SFML works!");
     Tribe tribe1(50, 50, 30, sf::Color(255, 0, 0));
-    Tribe tribe2(350, 50, 30, sf::Color(0, 255, 0));
-    Tribe tribe3(200, 200, 30, sf::Color(0, 0, 255));
+    window.setFramerateLimit(30);
     while (window.isOpen()) {
+        window.clear();
+        tribe1.updateAll();
         tribe1.drawAll(window);
-        tribe2.drawAll(window);
-        tribe3.drawAll(window);
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)

@@ -12,14 +12,25 @@
 
 using namespace std;
 
+#define WINDOW_MAX_X 400
+#define WINDOW_MAX_Y 400
+
 class Tribe {
 public:
-    Tribe(int x,int y,int numberOfFishes, sf::Color c);
+    Tribe(int x, int y, int numberOfFishes, sf::Color c);
+
+    vector<Fish *> get_fishes();
+
+    void updateAll();
+
+    void drawAll(sf::RenderWindow &window);
+
+private:
     sf::Color color;
     vector<Fish *> fishes;
     vec2<int> pos;
-    void drawAll(sf::RenderWindow& window);
 };
 
+extern vector<Tribe *> tribes;
 
 #endif //MYPROJECT_TRIBE_H
